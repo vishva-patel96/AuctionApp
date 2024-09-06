@@ -1,4 +1,6 @@
 using AuctionApp.Data;
+using AuctionApp.Data.Services;
+using AuctionApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +16,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddScoped<IListing, ListingService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

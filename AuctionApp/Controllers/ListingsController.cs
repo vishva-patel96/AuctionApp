@@ -7,22 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AuctionApp.Data;
 using AuctionApp.Models;
+using AuctionApp.Data.Services;
 
 namespace AuctionApp.Controllers
 {
     public class ListingsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IListing _listingService;
 
-        public ListingsController(ApplicationDbContext context)
+        public ListingsController(IListing listingService)
         {
-            _context = context;
+            _listingService = listingService;
         }
 
         // GET: Listings
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Listings.Include(l => l.User);
+            var applicationDbContext = _listingService.GetAll();
             return View(await applicationDbContext.ToListAsync());
         }
 

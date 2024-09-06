@@ -1,7 +1,9 @@
-﻿namespace AuctionApp.Data.Services
+﻿using AuctionApp.Models;
+
+namespace AuctionApp.Data.Services
 {
     public interface IListing
     {
-        IQueryable<Models.Listing> GetAll();
+        IQueryable<Listing> GetAll();
     }
 }
