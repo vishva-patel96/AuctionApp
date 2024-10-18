@@ -15,7 +15,7 @@ namespace AuctionApp.Controllers
     {
         private readonly IListing _listingService;
 
-        public ListingsController(IListing listingService)
+        public ListingsController(ListingService listingService)
         {
             _listingService = listingService;
         }
@@ -28,7 +28,7 @@ namespace AuctionApp.Controllers
         }
 
         // GET: Listings/Details/5
-        public async Task<IActionResult> Details(int? id)
+        /*public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -160,6 +160,6 @@ namespace AuctionApp.Controllers
         private bool ListingExists(int id)
         {
             return _context.Listings.Any(e => e.Id == id);
-        }
+        }*/
     }
 }
