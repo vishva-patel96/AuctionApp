@@ -18,6 +18,7 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddScoped<IListing, ListingService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,7 +42,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Listings}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();
